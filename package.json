@@ -4,9 +4,11 @@
   "description": "Lightweight react boilerplate",
   "main": "index.js",
   "scripts": {
-    "test": "tape -r babel-register -r ./test/dom-setup.js test/**/*.js | faucet",
+    "test": "npm run lint && npm run tape",
     "start": "node ./dev-server.js",
-    "build-prod": "webpack --config webpack.config.prod.js --progress"
+    "build-prod": "npm test && webpack --config webpack.config.prod.js --progress",
+    "tape": "tape -r babel-register -r ./test/dom-setup.js test/**/*.js | faucet; exit 0",
+    "lint": "eslint src/ test/; exit 0"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,11 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.9.0",
     "enzyme": "^2.3.0",
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-jsx-a11y": "^2.0.0",
+    "eslint-plugin-react": "^5.2.2",
     "faucet": "0.0.1",
     "jsdom": "^9.4.1",
     "react-addons-test-utils": "^15.2.0",

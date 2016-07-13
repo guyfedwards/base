@@ -2,7 +2,7 @@ import { jsdom } from 'jsdom';
 
 const exposedProperties = ['window', 'navigator', 'document'];
 
-global.document = jsdom('')
+global.document = jsdom('');
 global.window = document.defaultView;
 
 Object.keys(document.defaultView).forEach((prop) => {
@@ -13,5 +13,5 @@ Object.keys(document.defaultView).forEach((prop) => {
 });
 
 global.navigator = {
-  userAgent: 'node.js'
+  userAgent: 'node.js',
 };
